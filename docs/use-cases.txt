@@ -1,0 +1,27 @@
+Use Case: Adjust settings
+Overview: At any point, the user should be able to adjust settings relating to how the program acts. These settings would include selecting the input/output MIDI devices, the default MIDI instrument used, and selecting a VST to use in place of MIDI.
+Preconditions: User clicks a button to see a list of settings.
+
+Use Case: Detect any connected MIDI devices
+Overview: The program will check to see if any MIDI devices are plugged into the computer, and keep track of these devices.
+Preconditions: The user selects one of the two main menu options.
+
+Use Case: Play along to a metronome
+Overview: A metronome will play a sound for every beat at a default tempo. The user will be able to play their MIDI instrument along to the metronome and hear it.
+Preconditions: User selects the "metronome" option on the initial program screen.
+
+Use Case: Open a MIDI file
+Overview: The user will use a file browser to select a MIDI file that they would like to play along to. Only files with the .mid extension will be able to be selected.
+Preconditions: User selects the "song" option on the initial program screen.
+
+Use Case: Play along to a MIDI file
+Overview: The program will play back a MIDI file selected by the user using the selected MIDI instrument (or VST) specified in the settings. The user will also be able to hear themself play along to the file using their MIDI device.
+Preconditions: The program must have loaded the MIDI file selected by the user.
+
+Use Case: Adjust speed
+Overview: The user should be able to control the tempo of the metronome or MIDI file current playing by adjusting the BPM on the GUI to behigher or lower.
+Preconditions: The program must already be playing a MIDI file or have a metronome in action.
+
+Use Case: Feedback for user's playing
+Overview: After a song's completion, the program should be able to give the user feedback based on certain aspects of how they played along on their MIDI device. For example, it could say that overall "your playing was rushed", or that "you hit some wrong notes".
+Preconditions" The MIDI song must be finished playing, and the user must have played along for a good portion of it.
