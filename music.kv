@@ -1,0 +1,110 @@
+#: kivy 2.0.0
+
+WindowManager:
+    MainMenuWindow:
+    ModeSelectionWindow:
+    MetronomeWindow:
+
+<MainMenuWindow>:
+    name: "main_menu"
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        Label:
+            text: "Music Practice Software"
+
+        GridLayout:
+            cols: 2
+
+            Button:
+                text: "Play"
+                on_release:
+                    app.root.current = "mode_select"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Options"
+                on_release:
+                    app.root.current = "options"
+                    root.manager.transition.direction = "left"
+
+<ModeSelectionWindow>:
+    name: "mode_select"
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        Label:
+            text: "Select a mode!"
+
+        GridLayout:
+            cols: 3
+
+            Button:
+                text: "Play a metronome"
+                on_release:
+                    app.root.current = "metronome"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Play to a MIDI file"
+                on_release:
+                    app.root.current = "midi"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                text: "Go back"
+                on_release:
+                    app.root.current = "main_menu"
+                    root.manager.transition.direction = "right"
+
+<MetronomeWindow>:
+    name: "metronome"
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        Label:
+            text: "Metronome!"
+
+        Button:
+            text: "Go back"
+            on_release:
+                app.root.current = "mode_select"
+                root.manager.transition.direction = "right"
+
+<MidiWindow>:
+    name: "midi"
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        Label:
+            text: "MIDI!"
+
+        Button:
+            text: "Go back"
+            on_release:
+                app.root.current = "mode_select"
+                root.manager.transition.direction = "right"
+
+<OptionsWindow>:
+    name: "options"
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+
+        Label:
+            text: "Options!"
+
+        Button:
+            text: "Go back"
+            on_release:
+                app.root.current = "main_menu"
+                root.manager.transition.direction = "right"

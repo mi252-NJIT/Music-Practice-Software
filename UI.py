@@ -1,36 +1,41 @@
 from kivy.app import App
+from kivy.lang import Builder
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
+from kivy.uix.screenmanager import ScreenManager, Screen
 
+# Create all the screens for the program
+class MainMenuWindow(Screen):
+    pass
 
-class UIGrid(GridLayout):
-    def __init__(self, **kwargs):
-        super(UIGrid, self).__init__(**kwargs)
-        self.cols = 3
-    ##Creates labels and buttons for the window:
-        self.programNameLabel = Label(text="Music Practice Software")
-        self.playButton = Button(text="Play", font_size=40)
-        self.optionsButton = Button(text="Options", font_size=40)
-    ##Adds all of the created labels and buttons to the window:
-        self.add_widget(self.programNameLabel)
-        self.add_widget(self.playButton)
-        self.add_widget(self.optionsButton)
-        
+class ModeSelectionWindow(Screen):
+    pass
 
+class MetronomeWindow(Screen):
+    pass
 
+class MidiWindow(Screen):
+    pass
 
+class OptionsWindow(Screen):
+    pass
 
-
-
+class WindowManager(ScreenManager):
+    pass
 
 class MusicApp(App):
     def build(self):
-        return UIGrid()
+        sm = ScreenManager()
+        sm.add_widget(MainMenuWindow())
+        sm.add_widget(ModeSelectionWindow())
+        sm.add_widget(MetronomeWindow())
+        sm.add_widget(MidiWindow())
+        sm.add_widget(OptionsWindow())
 
-
+        return sm
 
 if __name__ == "__main__":
     MusicApp().run()
