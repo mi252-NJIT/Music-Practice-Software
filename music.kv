@@ -63,6 +63,7 @@ WindowManager:
 
 <MetronomeWindow>:
     name: "metronome"
+    tempo: tempo_slider
 
     GridLayout:
         cols: 1
@@ -71,9 +72,32 @@ WindowManager:
         Label:
             text: "Metronome!"
 
+        GridLayout:
+            cols: 2
+
+            Button:
+                text: "Start or stop metronome"
+                on_press:
+                    root.toggle_metronome()
+
+            GridLayout:
+                cols: 1
+
+                Label:
+                    text: str(tempo_slider.value)
+
+                Slider:
+                    id: tempo_slider
+                    min: 30
+                    max: 300
+                    value: 120
+                    step: 1
+                    orientation: 'horizontal'
+
         Button:
             text: "Go back"
             on_release:
+                root.close_metronome()
                 app.root.current = "mode_select"
                 root.manager.transition.direction = "right"
 
